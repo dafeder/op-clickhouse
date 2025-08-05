@@ -1,0 +1,25 @@
+# Docker
+.dockerignore
+Dockerfile.prod
+
+# Environment
+.env
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Database
+*.sql.bak

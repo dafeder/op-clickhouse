@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!-- ClickHouse configuration for Docker -->
+<yandex>
+    <logger>
+        <level>information</level>
+        <console>true</console>
+    </logger>
+
+    <!-- Listen on all interfaces -->
+    <listen_host>0.0.0.0</listen_host>
+    
+    <!-- HTTP port -->
+    <http_port>8123</http_port>
+    
+    <!-- TCP port -->
+    <tcp_port>9000</tcp_port>
+    
+    <!-- Interserver HTTP port -->
+    <interserver_http_port>9009</interserver_http_port>
+
+    <mysql_port>9004</mysql_port>
+
+    <!-- Maximum memory usage -->
+    <max_server_memory_usage_to_ram_ratio>0.8</max_server_memory_usage_to_ram_ratio>
+    
+    <!-- Path to data directory -->
+    <path>/var/lib/clickhouse/</path>
+    
+    <!-- Path to temporary data -->
+    <tmp_path>/var/lib/clickhouse/tmp/</tmp_path>
+    
+    <!-- Path to user files -->
+    <user_files_path>/var/lib/clickhouse/user_files/</user_files_path>
+    
+    <!-- Path to access log -->
+    <access_control_path>/var/lib/clickhouse/access/</access_control_path>
+    
+    <!-- Default profile settings -->
+    <default_profile>default</default_profile>
+    
+    <!-- System profile -->
+    <default_database>default</default_database>
+    
+    <!-- Remote servers (for clustering - optional) -->
+    <remote_servers incl="clickhouse_remote_servers"/>
+    
+    <!-- ZooKeeper (for replication - optional) -->
+    <zookeeper incl="zookeeper-servers" optional="true"/>
+    
+    <!-- Macros (for replication - optional) -->
+    <macros incl="macros" optional="true"/>
+    
+    <!-- Built-in configuration for system tables -->
+    <builtin_dictionaries_reload_interval>3600</builtin_dictionaries_reload_interval>
+    
+    <!-- Maximum concurrent queries -->
+    <max_concurrent_queries>100</max_concurrent_queries>
+    
+    <!-- Memory usage -->
+    <uncompressed_cache_size>8589934592</uncompressed_cache_size>
+    <mark_cache_size>5368709120</mark_cache_size>
+    
+    <!-- Timezone -->
+    <timezone>UTC</timezone>
+    
+    <!-- Query log -->
+    <query_log>
+        <database>system</database>
+        <table>query_log</table>
+        <partition_by>toYYYYMM(event_date)</partition_by>
+        <flush_interval_milliseconds>7500</flush_interval_milliseconds>
+    </query_log>
+    
+    <!-- Part log -->
+    <part_log>
+        <database>system</database>
+        <table>part_log</table>
+        <partition_by>toYYYYMM(event_date)</partition_by>
+        <flush_interval_milliseconds>7500</flush_interval_milliseconds>
+    </part_log>
+</yandex>
