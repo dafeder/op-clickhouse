@@ -13,10 +13,12 @@ MySQL or HTTP interfaces.
    docker-compose up -d
    ```
 
-4. **Unzip the CSV**
+4. **Download the CSV**
    ```bash
-   unzip clickhouse/user_files/general-payments.zip
+   curl -L "https://download.cms.gov/openpayments/PGYR2024_P06302025_06162025/OP_DTL_GNRL_PGYR2024_P06302025_06162025.csv" -o ./clickhouse/user_files/general-payments.csv
    ```
+   (Or, if you have the file already, copy it to clickhouse/user_files and
+   rename to general-payments.csv)
 
 3. **Open the ClickHouse console**
    ```bash
